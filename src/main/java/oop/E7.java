@@ -5,6 +5,6 @@ package oop;
  */
 public class E7 {
     public static void main(String[] args) {
-        System.out.println("李朋");
+        System.out.println("李");
     }
 }
