@@ -1,6 +1,7 @@
 package yichang;
 
 import java.io.FileInputStream;
+import java.io.IOException;
 import java.io.InputStream;
 
 /**
@@ -8,8 +9,9 @@ import java.io.InputStream;
  */
 public class InputStreamTest {
     public static void main(String[] args) {
+        InputStream inputStream = null;
         try {                                                  //直接写test也可以  是绝对路径
-            InputStream inputStream=new FileInputStream("d:test.txt");//相对路径
+             inputStream=new FileInputStream("d:test.txt");//相对路径
             //System.out.println(inputStream.read());  //输出第一个字符
             int i;
             while ((i=inputStream.read())!=-1){
@@ -17,6 +19,14 @@ public class InputStreamTest {
             }
         } catch (Exception e) {
             e.printStackTrace();
+        } finally {
+            if (inputStream != null) {
+                try {
+                    inputStream.close();//guanbi
+                } catch (IOException e1) {
+                    e1.printStackTrace();
+                }
+            }
         }
     }
 }
